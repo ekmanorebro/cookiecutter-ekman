@@ -3,7 +3,7 @@ from decouple import config
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[2]
-APPS_DIR = BASE_DIR / 'django_ekman' / 'apps'
+APPS_DIR = BASE_DIR / '{{ cookiecutter.project_name }}' / 'apps'
 
 SECRET_KEY = config('SECRET_KEY')
 
@@ -19,7 +19,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = []
 
 LOCAL_APPS = [
-    'django_ekman.apps.users',
+    '{{ cookiecutter.project_name }}.apps.users',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -34,7 +34,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_ekman.urls'
+ROOT_URLCONF = '{{ cookiecutter.project_name }}.urls'
 
 TEMPLATES = [
     {
@@ -52,7 +52,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_ekman.wsgi.application'
+WSGI_APPLICATION = '{{ cookiecutter.project_name }}.wsgi.application'
 
 # Internationalization
 

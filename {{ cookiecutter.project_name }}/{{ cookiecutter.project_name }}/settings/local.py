@@ -20,9 +20,9 @@ DATABASES = {
 }
 
 # Static files (CSS, JavaScript, Images)
-STATIC_ROOT = BASE_DIR / "django_ekman" / "apps" / "static"
+STATIC_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "apps" / "static"
 STATIC_URL = '/static/'
 
 # Media files uploaded by users
-MEDIA_ROOT = BASE_DIR / "django_ekman" / "apps" / "media"
+MEDIA_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "apps" / "media"
 MEDIA_URL = '/media/'
