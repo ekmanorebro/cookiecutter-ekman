@@ -1,32 +1,34 @@
-<h1>Register</h1>
-<hr>
-<form method="POST">
-  {% csrf_token %}
-  {{ form.non_field_errors }}
+{% raw %}
+  <h1>Register</h1>
+  <hr>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
 
-  <p>{{ form.username.label }}</p>
-  <p>{{ form.username.errors }}</p>
-  <p>{{ form.username }}</p>
+    <p>{{ form.username.label }}</p>
+    <p>{{ form.username.errors }}</p>
+    <p>{{ form.username }}</p>
 
-  <p>{{ form.first_name.label }}</p>
-  <p>{{ form.first_name.errors }}</p>
-  <p>{{ form.first_name }}</p>
+    <p>{{ form.first_name.label }}</p>
+    <p>{{ form.first_name.errors }}</p>
+    <p>{{ form.first_name }}</p>
 
-  <p>{{ form.last_name.label }}</p>
-  <p>{{ form.last_name.errors }}</p>
-  <p>{{ form.last_name }}</p>
+    <p>{{ form.last_name.label }}</p>
+    <p>{{ form.last_name.errors }}</p>
+    <p>{{ form.last_name }}</p>
 
-  <p>{{ form.email.label }}</p>
-  <p>{{ form.email.errors }}</p>
-  <p>{{ form.email }}</p>
+    <p>{{ form.email.label }}</p>
+    <p>{{ form.email.errors }}</p>
+    <p>{{ form.email }}</p>
 
-  <p>Password:</p>
-  <p>{{ form.password1.errors }}</p>
-  <p>{{ form.password1 }}</p>
+    <p>Password:</p>
+    <p>{{ form.password1.errors }}</p>
+    <p>{{ form.password1 }}</p>
 
-  <p>Confirm password:</p>
-  <p>{{ form.password2.errors }}</p>
-  <p>{{ form.password2 }}</p>
+    <p>Confirm password:</p>
+    <p>{{ form.password2.errors }}</p>
+    <p>{{ form.password2 }}</p>
 
-  <input type="submit" value="Register">
-</form>
+    <input type="submit" value="Register">
+  </form>
+{% endraw %}
