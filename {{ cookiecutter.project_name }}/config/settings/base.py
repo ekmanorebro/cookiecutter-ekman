@@ -20,7 +20,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = []
 
 LOCAL_APPS = [
-    '{{ cookiecutter.project_name }}.users', # relative to base_dir or app_dir? let's try base_dir
+    '{{ cookiecutter.project_name }}.users.apps.UsersConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
