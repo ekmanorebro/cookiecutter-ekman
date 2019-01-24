@@ -3,7 +3,8 @@ from decouple import config
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[2]
-APPS_DIR = BASE_DIR / '{{ cookiecutter.project_name }}' / 'apps'
+
+APPS_DIR = BASE_DIR / '{{ cookiecutter.project_name }}'
 
 SECRET_KEY = config('SECRET_KEY')
 
@@ -19,7 +20,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = []
 
 LOCAL_APPS = [
-    '{{ cookiecutter.project_name }}.apps.users',
+    '{{ cookiecutter.project_name }}.users', # relative to base_dir or app_dir? let's try base_dir
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -34,7 +35,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '{{ cookiecutter.project_name }}.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -52,7 +53,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = '{{ cookiecutter.project_name }}.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # Internationalization
 
@@ -68,15 +69,17 @@ USE_TZ = True
 
 # AUTHENTICATION
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = '{{ cookiecutter.project_name }}.users.User'
+
 LOGIN_REDIRECT_URL = 'users:detail'
+
 LOGIN_URL = 'users:login'
 
 
 
 
 ## TO DO:
-## the static files url, media, etc..
+## the static files url, media, etc.. ---- different in local, production??
 ## custom user model...
 ## turn it into cookiecutter template
 ## see what WSGI_APPLICATION is

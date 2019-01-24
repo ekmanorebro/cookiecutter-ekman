@@ -20,9 +20,15 @@ DATABASES = {
 }
 
 # Static files (CSS, JavaScript, Images)
-STATIC_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "apps" / "static"
+STATIC_ROOT = BASE_DIR / "staticfiles" # collectstatic
+
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "{{ cookiecutter.project_name }}" / "static",
+]
+
 # Media files uploaded by users
-MEDIA_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "apps" / "media"
+MEDIA_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "media"
+
 MEDIA_URL = '/media/'

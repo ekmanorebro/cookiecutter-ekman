@@ -35,12 +35,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# CSS, JavaScript, Images
-STATIC_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "apps" / "static"
+# Static files (CSS, JavaScript, Images)
+STATIC_ROOT = BASE_DIR / "staticfiles" # collectstatic -- not needed? only if you have multiple static files (one in each app) and want to collect them into one static folder to make it easier to serve in a production environment
+
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "{{ cookiecutter.project_name }}" / "static",
+]
+
 # Media files uploaded by users
-MEDIA_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "apps" / "media"
+MEDIA_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "media"
+
 MEDIA_URL = '/media/'
 
 
