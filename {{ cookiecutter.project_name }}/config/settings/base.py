@@ -3,11 +3,12 @@ from decouple import config
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[2]
-
 APPS_DIR = BASE_DIR / '{{ cookiecutter.project_name }}'
 
 SECRET_KEY = config('SECRET_KEY')
 
+# APPS
+# ------------------------------------------------------------------------------
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -16,15 +17,14 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
 THIRD_PARTY_APPS = []
-
 LOCAL_APPS = [
     '{{ cookiecutter.project_name }}.users.apps.UsersConfig',
 ]
-
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
+# MIDDLEWARE
+# ------------------------------------------------------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -35,8 +35,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# URLS
+# ------------------------------------------------------------------------------
 ROOT_URLCONF = 'config.urls'
+WSGI_APPLICATION = 'config.wsgi.application'
 
+# TEMPLATES
+# ------------------------------------------------------------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -53,41 +58,28 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
-
-# Internationalization
-
+# INTERNATIONALIZATION
+# ------------------------------------------------------------------------------
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 # AUTHENTICATION
-
+# ------------------------------------------------------------------------------
 AUTH_USER_MODEL = 'users.User'
-
 LOGIN_REDIRECT_URL = 'users:detail'
-
 LOGIN_URL = 'users:login'
 
 
 
+## NOW:
+## do readme for the template (add .env)
+## finally, go through each file, so if everything looks right, and that you have properly explained it in your Django notes..
+## test it out (create apps, test the custom user model, static files (css), etc..)..
+## upload final version
 
-## TO DO:
-## the static files url, media, etc.. ---- different in local, production??
-## custom user model...
-## turn it into cookiecutter template
-## see what WSGI_APPLICATION is
-## see if you need to add anything else..
-## .gitignore => .env
-## see if you need to divide the base, local, production any further, or if it's done
-## see what you have to do with the database..
-## see if it works, with a new app, with template, and urls, static files, and all of that..
 
 
 

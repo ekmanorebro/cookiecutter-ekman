@@ -1,4 +1,8 @@
-{% raw %}
+{% raw %}{‰ extends 'base.html' %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
   <h1>LOGIN</h1>
   <hr>
   <form method="POST">
@@ -6,4 +10,5 @@
     {{ form.as_p }}
     <input type="submit" value="Login">
   </form>
+{% endblock content %}
 {% endraw %}

@@ -1,4 +1,8 @@
-{% raw %}
+{% raw %}{% extends 'base.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
   <h1>Register</h1>
   <hr>
   <form method="POST">
@@ -31,4 +35,5 @@
 
     <input type="submit" value="Register">
   </form>
+{% endblock content %}
 {% endraw %}

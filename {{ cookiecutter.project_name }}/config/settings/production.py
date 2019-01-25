@@ -1,14 +1,17 @@
 from .base import *
 from decouple import config
 
+# GENERAL
+# ------------------------------------------------------------------------------
 DEBUG = False
-
 ALLOWED_HOSTS = [
     "localhost",
     "0.0.0.0",
     "127.0.0.1",
 ]
 
+# DATABASES
+# ------------------------------------------------------------------------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -20,6 +23,8 @@ DATABASES = {
     }
 }
 
+# PASSWORDS
+# ------------------------------------------------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -35,20 +40,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Static files (CSS, JavaScript, Images)
-STATIC_ROOT = BASE_DIR / "staticfiles" # collectstatic -- not needed? only if you have multiple static files (one in each app) and want to collect them into one static folder to make it easier to serve in a production environment
-
+# STATIC FILES (CSS, JS, IMAGES)
+# ------------------------------------------------------------------------------
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     BASE_DIR / "{{ cookiecutter.project_name }}" / "static",
 ]
 
-# Media files uploaded by users
+# MEDIA FILES (UPLOADED BY USERS)
+# ------------------------------------------------------------------------------
 MEDIA_ROOT = BASE_DIR / "{{ cookiecutter.project_name }}" / "media"
-
 MEDIA_URL = '/media/'
-
 
 
 
