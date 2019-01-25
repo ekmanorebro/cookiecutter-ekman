@@ -1,9 +1,9 @@
 Cookiecutter Ekman
----
+=======================
 A Cookiecutter template for Django.
 
 Usage
----
+=======================
 Setup your virtualenv
 
 >>> pip install cookiecutter
